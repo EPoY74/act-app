@@ -5,7 +5,7 @@
 <form>
     <label>
         Ф.И.О Полностью:
-        <input type="text" [(ngModel)]="fio" name="fio">
+        <input type="text" [(ngModel)]="fio" name="fio" required />
     </label>
     <br />
 
@@ -15,5 +15,5 @@
     </label>
     <br />
 
-    <button type="button" (click)="submit()">Сформировать</button>
+    <button [disabled]="!fio || fio.trim().length===0" (click)="submit()">Сформировать</button>
 </form>
