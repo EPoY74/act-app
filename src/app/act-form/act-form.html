@@ -1,0 +1,19 @@
+<!-- <p>act-form works!</p> -->
+<h1>Формирование акта выявленных несоответствий</h1>
+<h2>Формирование акта</h2>
+
+<form>
+    <label>
+        Ф.И.О Полностью:
+        <input type="text" [(ngModel)]="fio" name="fio">
+    </label>
+    <br />
+
+    <label>
+        Адрес:
+        <input type="text" [(ngModel)]="address" name="address">
+    </label>
+    <br />
+
+    <button>type="button" (click)="submit()"Сформировать</button>
+</form>
