@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-act-preview',
@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './act-preview.css',
 })
 export class ActPreview {
-
+  @Input() fio = '';
+  @Input() address = '';
 }
