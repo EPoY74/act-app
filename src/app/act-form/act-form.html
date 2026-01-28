@@ -2,11 +2,17 @@
 <h1>Формирование акта выявленных несоответствий</h1>
 <h2>Формирование акта</h2>
 
-<form>
+<form #actForm="ngForm">
     <label>
         Ф.И.О Полностью:
-        <input type="text" [(ngModel)]="fio" name="fio" required />
+        <input type="text" [(ngModel)]="fio" name="fio" required #fioField = "ngModel" />
     </label>
+    
+    @if(fioField.touched && fio.trim().length===0){
+    <div>
+        Введите ФИО полностью
+    </div>
+    }
     <br />
 
     <label>
@@ -15,5 +21,5 @@
     </label>
     <br />
 
-    <button [disabled]="!fio || fio.trim().length===0" (click)="submit()">Сформировать</button>
+    <button [disabled]="!actForm.valid" (click)="submit()">Сформировать</button>
 </form>
