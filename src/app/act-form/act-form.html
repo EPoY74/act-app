@@ -20,6 +20,40 @@
         <input type="text" [(ngModel)]="address" name="address">
     </label>
     <br />
-
+    <label>
+        Дата: 
+        <input type="text" [(ngModel)]="date" name="date">
+    </label>
+    <br />
+    <label>
+        Исполнитель:
+        <input type="text" [(ngModel)]="executor" name="executor">
+    </label>
+    <br /> <br />
     <button [disabled]="!actForm.valid" (click)="submit()">Сформировать</button>
 </form>
+<p>Предварительный просмотр:</p>
+<app-act-preview 
+[fio]="fio"
+[address]="address"
+[date]="date"
+[executor]="executor"
+
+></app-act-preview>
+
+<br />
+<h3>Список актов</h3>
+<!-- <pre>{{ acts | json }}</pre> -->
+
+@for (act of acts; track act.createdAt; let i = $index){
+    <div class="act-card">
+        <h3>Акт № {{ i+1 }}, от {{ act.date }}</h3>
+        <p><Strong>ФИО: </Strong> {{act. fio}} </p>
+        <p><strong>Адрес: </strong> {{act. address}} </p>
+        <p><strong>Дата: </strong> {{act.date}} </p>
+        <p><strong>Исполнитель: </strong> {{act.executor}} </p>
+    </div>
+    <br />
+} @empty {
+    <p>Актов пока нет</p>
+}
