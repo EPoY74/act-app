@@ -52,6 +52,7 @@
         <p><strong>Адрес: </strong> {{act. address}} </p>
         <p><strong>Дата: </strong> {{act.date}} </p>
         <p><strong>Исполнитель: </strong> {{act.executor}} </p>
+        <button (click)="deleteAct(i)">Удалить акт</button>
     </div>
     <br />
 } @empty {
